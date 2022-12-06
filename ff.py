@@ -20,7 +20,9 @@ class ReLU:
         return np.maximum(0, x)
     
     def gradient(self,x):
-        return np.maximum(0, x)
+        grads = np.zeros(x.shape)
+        grads[x > 0] = 1
+        return grads
 
     
 class Linear:
@@ -28,7 +30,7 @@ class Linear:
         return x
     
     def gradient(x):
-        return x
+        return np.ones(x.shape)
 
 
 class DenseLayer:
